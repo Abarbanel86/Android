@@ -8,10 +8,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-private val TAG = "MainActivity"
+
+private const val TAG = "MainActivity"
+private const val TEXT_CONTENT = "TextContent"
 
 class MainActivity : AppCompatActivity() {
-    private var  textView:TextView? = null
+    private var textView: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate called")
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         textView?.movementMethod = ScrollingMovementMethod()
         userInput.text.clear()
 
-        button.setOnClickListener(object: View.OnClickListener {
+        button.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View) {
                 Log.d(TAG, "onClick Called")
                 textView?.append(userInput.text)
@@ -46,6 +48,8 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         Log.d(TAG, "onRestoreState Called")
         super.onRestoreInstanceState(savedInstanceState)
+
+        textView?.text = savedInstanceState.getString(TEXT_CONTENT, "")
     }
 
     override fun onResume() {
@@ -61,6 +65,8 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         Log.d(TAG, "onSaveInstanceState Called")
         super.onSaveInstanceState(outState)
+
+        outState.putString(TEXT_CONTENT, textView?.text.toString())
     }
 
     override fun onStop() {
