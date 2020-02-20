@@ -127,7 +127,7 @@
         android:id="@+id/btn7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:minWidth="48dp"
         android:text="7"
         android:textSize="36sp"
@@ -221,5 +221,17 @@
         android:textSize="36sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/decimalpoint"
         app:layout_constraintStart_toEndOf="@+id/decimalpoint" />
+
+    <Button
+        android:id="@+id/toggleSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="+/-"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn0"
+        app:layout_constraintTop_toBottomOf="@+id/btn0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
