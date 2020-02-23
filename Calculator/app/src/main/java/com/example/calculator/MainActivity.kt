@@ -3,10 +3,7 @@ package com.example.calculator
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val STATE_PENDING_OPERATION = "PendingOperation"
@@ -14,6 +11,7 @@ private const val STATE_OPRAND_ONE = "OprOne"
 private const val STATE_OPR1_STORED = "OperandOneStored"
 
 class MainActivity : AppCompatActivity() {
+//    ways to initialize in Java
 //    private lateinit var result: EditText
 //    private lateinit var newNumber: EditText
 //    private val displayOperation by lazy(LazyThreadSafetyMode.NONE) { findViewById<TextView>(R.id.operation) }
@@ -59,6 +57,15 @@ class MainActivity : AppCompatActivity() {
             newNumber.setText((-1 * (newNumber.text.toString().toDouble())).toString())
         }
 
+        val clearBtnListener = View.OnClickListener {
+            if(newNumber.text.toString() == "") {
+                result.setText("")
+            }
+
+            newNumber.setText("")
+            pendingOperation = "="
+        }
+
         btn0.setOnClickListener(listener)
         btn1.setOnClickListener(listener)
         btn2.setOnClickListener(listener)
@@ -71,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         btn9.setOnClickListener(listener)
         decimalpoint.setOnClickListener(listener)
         toggleSign.setOnClickListener(toggleListener)
+        clear.setOnClickListener(clearBtnListener)
 
         val oprListener = View.OnClickListener { v ->
             val op = (v as Button).text.toString()

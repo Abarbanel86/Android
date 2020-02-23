@@ -234,4 +234,13 @@
         app:layout_constraintStart_toStartOf="@+id/btn0"
         app:layout_constraintTop_toBottomOf="@+id/btn0" />
 
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/toggleSign"
+        app:layout_constraintEnd_toEndOf="@+id/plus" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
