@@ -15,12 +15,14 @@ import java.net.URL
 
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
+    private val url = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate called")
         val downloadData = DownloadData()
-        downloadData.execute("URL goes here")
+        downloadData.execute(url)
         Log.d(TAG,"onCreate - done")
     }
 
@@ -52,9 +54,23 @@ class MainActivity : AppCompatActivity() {
                     val response = connection.responseCode
                     Log.d(TAG, "downloadXML: The response code was $response")
 
-                    val inputSteam = connection.inputStream
-                    val inputStreamReader = InputStreamReader(inputSteam)
-                    val reader = BufferedReader(inputStreamReader)
+//                    val inputSteam = connection.inputStream
+//                    val inputStreamReader = InputStreamReader(inputSteam)
+//                    val reader = BufferedReader(inputStreamReader)
+                    val reader = BufferedReader(InputStreamReader(connection.inputStream))
+
+                    val inputBuffer = CharArray(500)
+                    var charsRead = 0
+                    while(charsRead >= 0) {
+                        charsRead = reader.read(inputBuffer)
+                        if(charsRead > 0) {
+                            xmlResult.append((String(inputBuffer, 0, charsRead)))
+                        }
+                    }
+
+                    reader.close()
+                    Log.d(TAG, "recived ${xmlResult.length} bytes")
+                    return xmlResult.toString()
                 } catch(e: MalformedURLException) {
                     Log.e(TAG, "downloadXML: Invalid URL ${e.message}")
                 } catch(e: IOException) {
@@ -62,6 +78,8 @@ class MainActivity : AppCompatActivity() {
                 } catch (e: Exception) {
                     Log.e(TAG, "downloadXML: Exception ${e.message}")
                 }
+
+                return "" // issue encountered returns empty string
             }
         }
     }
