@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -61,12 +60,14 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPostExecute(result: String) {
                 super.onPostExecute(result)
-//                Log.d(TAG, "onPostExecute: parameter is $result")
                 val pasrseApplications = ParseAplications()
                 pasrseApplications.parse(result)
 
-                val arrayAdapter = ArrayAdapter<FeedEntry>(propContext, R.layout.list_item, pasrseApplications.apps)
-                propListView.adapter = arrayAdapter
+//                val arrayAdapter = ArrayAdapter<FeedEntry>(propContext, R.layout.list_item, pasrseApplications.apps)
+//                propListView.adapter = arrayAdapter
+
+                val feedAdapter = FeedAdapter(propContext, R.layout.list_record, pasrseApplications.apps)
+                propListView.adapter = feedAdapter
             }
 
             override fun doInBackground(vararg url: String?): String {
@@ -76,10 +77,12 @@ class MainActivity : AppCompatActivity() {
                 if (rssFeed.isEmpty()) {
                     Log.e(TAG, "doInBackground: download failed")
                 }
+                Log.d(TAG, "Finishing doInBackGround")
                 return rssFeed
             }
 
             private fun downloadXML(urlPath: String?): String {
+                Log.d(TAG, "Starting downloadURL")
                 return URL(urlPath).readText()
             }
         }

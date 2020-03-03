@@ -27,7 +27,7 @@ class ParseAplications {
                 when (eventType) {
 
                     XmlPullParser.START_TAG -> {
-                        Log.d(TAG, "parse starting tag for " + tagName)
+                        //Log.d(TAG, "parse starting tag for " + tagName)
                         if(tagName == "entry") {
                             inEntry = true
                         }
@@ -55,10 +55,10 @@ class ParseAplications {
                 eventType = xpp.next()
             }
 
-                for(app in apps) {
-                    Log.d(TAG, "======================")
-                    Log.d(TAG, app.toString())
-                }
+//                for(app in apps) {
+//                    Log.d(TAG, "======================")
+//                    Log.d(TAG, app.toString())
+//                }
         } catch (e: Exception) {
             e.printStackTrace()
             status = false
