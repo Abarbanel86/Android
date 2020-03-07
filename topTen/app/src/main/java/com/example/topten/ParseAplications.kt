@@ -3,6 +3,7 @@ package com.example.topten
 import android.util.Log
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
+import kotlin.collections.ArrayList
 
 class ParseAplications {
     private val TAG = "ParseApplications"
@@ -54,7 +55,6 @@ class ParseAplications {
                 }
                 eventType = xpp.next()
             }
-
 //                for(app in apps) {
 //                    Log.d(TAG, "======================")
 //                    Log.d(TAG, app.toString())
