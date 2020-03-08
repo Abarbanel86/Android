@@ -31,6 +31,10 @@ class FeedEntry {
         """.trimIndent()
     }
 }
+
+private const val FEED_COUNT = "FeedCount"
+private const val FEED_TYPE = "FeedType"
+
 class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
     private var url =
@@ -63,14 +67,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var urlPath: String = url
 
-        when (item.itemId) {
+        when(item.itemId) {
+            R.id.mnuRefresh ->
+                downloadUrl(urlPath.format(feedLimit))
             R.id.mnuFree ->
-                url = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=%d/xml"
+                urlPath = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=%d/xml"
             R.id.mnuPaid ->
-                url = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=%d/xml"
+                urlPath = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=%d/xml"
             R.id.mnuSongs ->
-                url = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=%d/xml"
+                urlPath = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=%d/xml"
             R.id.mnu10, R.id.mnu25 -> {
                 if(!item.isChecked) {
                     item.isChecked = true
@@ -78,12 +85,16 @@ class MainActivity : AppCompatActivity() {
                     Log.d(TAG, "onOptionsSelected: ${item.title} setting feed limit to $feedLimit")
                 } else {
                     Log.d(TAG, "onOptionsSelected: ${item.title} setting feed limit unchanged")
+                    return true
                 }
             }
             else ->
-                throw(IllegalStateException())
+                return super.onOptionsItemSelected(item)
         }
-        downloadUrl(url.format(feedLimit))
+
+        if(urlPath != url){
+            downloadUrl(urlPath.format(feedLimit))
+        }
 
         return true
     }
@@ -132,5 +143,19 @@ class MainActivity : AppCompatActivity() {
                 return URL(urlPath).readText()
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putString(FEED_TYPE, url)
+        outState.putInt(FEED_COUNT, feedLimit)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        url = savedInstanceState.getString(FEED_TYPE, url)
+        feedLimit = savedInstanceState.getInt(FEED_COUNT, 10)
     }
 }
