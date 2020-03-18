@@ -1,0 +1,2 @@
+rootProject.name='Royal Craps'
+include ':app'

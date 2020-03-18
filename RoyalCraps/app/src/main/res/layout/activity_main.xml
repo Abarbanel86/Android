@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollof7"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOfDouble"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOfDouble"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResultOdds3"
+        android:layout_width="127dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="24dp"
+        android:text="Odds"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf16"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintTop_toBottomOf="@+id/rollResultDouble"
+        app:srcCompat="@tools:sample/avatars"
+        tools:layout_editor_absoluteX="611dp" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf17"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintTop_toBottomOf="@+id/rollResultDouble"
+        app:srcCompat="@tools:sample/avatars"
+        tools:layout_editor_absoluteX="527dp" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollofDouble"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOfDouble"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOfDouble"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOfEvens"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOfEven"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOfEven"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOfEvens"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf50ForRollOfEvens"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf50ForRollOfEvens"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOfEvens"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf20ForRollOfEvens"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf20ForRollOfEvens"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOfEven"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResultEvens"
+        app:layout_constraintTop_toBottomOf="@+id/rollResultEvens"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResultEvens"
+        android:layout_width="127dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:text="Evens"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="55dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:text="12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf12"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf20ForRollof12"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollof12"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOfDouble"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResultDouble"
+        app:layout_constraintTop_toBottomOf="@+id/rollResultDouble"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollofDouble"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOfDouble"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOfDouble"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollof12"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:srcCompat="@tools:sample/avatars"
+        tools:layout_editor_absoluteX="682dp" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf12"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf12"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf12"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf12"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult11"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="11"
+        app:layout_constraintStart_toEndOf="@+id/rollResult10"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf11"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf11"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult11"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf4"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf11"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf11"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf11"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult11"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult11"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf11"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf11"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf11"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult10"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="10"
+        app:layout_constraintStart_toEndOf="@+id/rollResult9"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf10"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf10"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf10"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf10"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult10"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult10"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf10"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf10"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf10"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf10"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf10"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult10"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult9"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="9"
+        app:layout_constraintStart_toEndOf="@+id/rollResult8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf9"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf9"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOf9"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf9"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult9"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult9"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf9"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf9"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf9"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf9"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf9"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf9"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult8"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="8"
+        app:layout_constraintStart_toEndOf="@+id/rollResult7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf8"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf8"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf8"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf8"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult8"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult8"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf8"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf8"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf8"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf8"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf8"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOf8"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf7"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult7"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult7"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf7"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf7"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf7"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOf7"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult6"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="6"
+        app:layout_constraintStart_toEndOf="@+id/rollResult5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/rollResult7"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="7"
+        app:layout_constraintStart_toEndOf="@+id/rollResult6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf6"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf6"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf6"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf6"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf6"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf6"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf6"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult6"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult6"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf6"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf6"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRollOf6"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult5"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="5"
+        app:layout_constraintStart_toEndOf="@+id/rollResult4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf4"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf3"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult4"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult4"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResult4"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="4"
+        app:layout_constraintStart_toEndOf="@+id/rollResualt3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf5"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResult5"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult5"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf5"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf5"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf5"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf5"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRollOf5"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf5"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf5"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf5"
+        app:layout_constraintTop_toBottomOf="@+id/rollResult5"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/rollResualt3"
+        android:layout_width="55dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollOf3"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRollOf3"
+        app:layout_constraintTop_toBottomOf="@+id/rollResualt3"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRollOf3"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResualt3"
+        app:layout_constraintTop_toBottomOf="@+id/rollResualt3"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf3"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf100ForRollOf3"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollOf3"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf3"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/rollResualt3"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRollOf3"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="55dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/coinsOf100ForRollOf2"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf50ForRollOf2"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf20ForRollof2"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf20ForRollof2"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toEndOf="@+id/coinsOf10ForRoll2"
+        app:layout_constraintTop_toTopOf="@+id/coinsOf10ForRoll2"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf50ForRollOf2"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/coinsOf10ForRoll2"
+        app:layout_constraintTop_toBottomOf="@+id/coinsOf10ForRoll2"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/coinsOf10ForRoll2"
+        android:layout_width="29dp"
+        android:layout_height="34dp"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:srcCompat="@tools:sample/avatars" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="196dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="196dp" />
+
+    <Button
+        android:id="@+id/rollResultDouble"
+        android:layout_width="123dp"
+        android:layout_height="86dp"
+        android:text="double"
+        app:layout_constraintEnd_toStartOf="@+id/rollResultOdds3"
+        app:layout_constraintStart_toEndOf="@+id/rollResultEvens"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="322dp" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="361dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
