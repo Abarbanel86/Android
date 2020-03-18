@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 private const val TAG = "MainActivity"
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate called")
         val getRawData = GetRawData(this)
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 //        private val TAG = "MainActivity"
 //    }
 
-    fun onDownloadComplete(data: String, status: DownloadStatus) {
+    override fun onDownloadComplete(data: String, status: DownloadStatus) {
         if(status == DownloadStatus.OK) {
             Log.d(TAG, "onDownloadComplete, download completed data is ${data}")
         } else {

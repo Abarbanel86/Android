@@ -13,9 +13,12 @@ enum class DownloadStatus {
 
 private const val TAG = "GetRawData"
 
-class GetRawData(private val listener: MainActivity) : AsyncTask<String, Void, String>() {
+class GetRawData(private val listener: OnDownloadDataComplete) : AsyncTask<String, Void, String>() {
     private var status = DownloadStatus.IDLE
 
+    interface  OnDownloadDataComplete {
+        fun onDownloadComplete(data: String, status: DownloadStatus)
+    }
 //    fun setDownloadCompleteListener(callBackObject: MainActivity) {
 //        listener = callBackObject
 //    }
