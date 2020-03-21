@@ -1,5 +1,6 @@
 package com.tomabarbanel.flickerapp
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
@@ -8,23 +9,42 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 private const val TAG = "MainActivity"
 
 
-class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete {
+class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
+    GetFlikerJsonData.OnDataAvailable {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate called")
-        val getRawData = GetRawData(this)
+
         //getRawData.setDownloadCompleteListener(this)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        getRawData.execute(getString(R.string.DownloadURL))
+
+        val url = createUri("android, oreo", "en-us", true)
+        val getRawData = GetRawData(this)
+        getRawData.execute(url)
 
         Log.d(TAG, "onCreate ends")
+    }
+
+    private fun createUri(searchCreteria: String, lang: String, matchAll: Boolean): String {
+        Log.d(TAG, "createUri starts")
+
+        return Uri.parse("https://api.flickr.com/services/feeds/photos_public.gne")
+            .buildUpon()
+            .appendQueryParameter("tags", searchCreteria)
+            .appendQueryParameter("tagmode", if (matchAll) "ALL" else "ANY")
+            .appendQueryParameter("lang", lang)
+            .appendQueryParameter("format", "json")
+            .appendQueryParameter("nojsoncallback", "1")
+            .build()
+            .toString()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,10 +70,24 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete {
 //    }
 
     override fun onDownloadComplete(data: String, status: DownloadStatus) {
-        if(status == DownloadStatus.OK) {
-            Log.d(TAG, "onDownloadComplete, download completed data is ${data}")
+
+        if (status == DownloadStatus.OK) {
+            Log.d(TAG, "onDownloadComplete, download completed data is")
+
+            val getFlikerJsonData = GetFlikerJsonData(this)
+            getFlikerJsonData.execute(data)
         } else {
-            Log.d(TAG, "onDownloadComplete download failed with error ${data}")
+            Log.d(TAG, "onDownloadComplete download failed with error $data")
         }
+    }
+
+    override fun onDataAvailable(data: List<Photo>) {
+        Log.d(TAG, "onDataAvailable data is ${data}")
+
+        Log.d(TAG, "onDataAvailable ends")
+    }
+
+    override fun onError(exception: Exception) {
+        Log.e(TAG, "onError called with ${exception.message}")
     }
 }
