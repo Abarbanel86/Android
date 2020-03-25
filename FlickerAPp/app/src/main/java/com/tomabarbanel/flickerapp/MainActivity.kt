@@ -7,15 +7,21 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import java.lang.Exception
+import java.util.ArrayList
 
 private const val TAG = "MainActivity"
 
 
 class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
     GetFlikerJsonData.OnDataAvailable {
+
+    private val flikerRecycleViewAdapter = FlikerRecycleViewAdapter(ArrayList())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate called")
 
@@ -24,6 +30,9 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.adapter = flikerRecycleViewAdapter
 
 
         val url = createUri("android, oreo", "en-us", true)
@@ -36,7 +45,7 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
     private fun createUri(searchCreteria: String, lang: String, matchAll: Boolean): String {
         Log.d(TAG, "createUri starts")
 
-        return Uri.parse("https://api.flickr.com/services/feeds/photos_public.gne")
+        val address = Uri.parse(getString(R.string.DownloadURL))
             .buildUpon()
             .appendQueryParameter("tags", searchCreteria)
             .appendQueryParameter("tagmode", if (matchAll) "ALL" else "ANY")
@@ -45,6 +54,10 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
             .appendQueryParameter("nojsoncallback", "1")
             .build()
             .toString()
+
+        Log.d(TAG, "Address built is ${address}")
+
+        return address
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -82,8 +95,8 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
     }
 
     override fun onDataAvailable(data: List<Photo>) {
-        Log.d(TAG, "onDataAvailable data is ${data}")
-
+        Log.d(TAG, "onDataAvailable called")
+        flikerRecycleViewAdapter.loadNewData(data)
         Log.d(TAG, "onDataAvailable ends")
     }
 
