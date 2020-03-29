@@ -7,6 +7,8 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,7 +20,7 @@ private const val TAG = "MainActivity"
 
 
 class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
-    GetFlikerJsonData.OnDataAvailable {
+    GetFlikerJsonData.OnDataAvailable, RecyclerItemClickListener.OnRecyclerClickListener {
 
     private val flikerRecycleViewAdapter = FlikerRecycleViewAdapter(ArrayList())
 
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
         setSupportActionBar(toolbar)
 
         recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.addOnItemTouchListener(RecyclerItemClickListener(this, recycler_view, this))
         recycler_view.adapter = flikerRecycleViewAdapter
 
 
@@ -102,5 +105,15 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
 
     override fun onError(exception: Exception) {
         Log.e(TAG, "onError called with ${exception.message}")
+    }
+
+    override fun onItemClick(view: View, position: Int) {
+        Log.d(TAG, "onItemClick starts")
+        Toast.makeText(this, "normal tap at $position", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onItemLongClick(view: View, position: Int) {
+        Log.d(TAG, "onLongClick start")
+        Toast.makeText(this, "LogClick at $position", Toast.LENGTH_SHORT).show()
     }
 }

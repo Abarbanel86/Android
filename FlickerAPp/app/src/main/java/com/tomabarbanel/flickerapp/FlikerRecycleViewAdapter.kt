@@ -1,6 +1,5 @@
 package com.tomabarbanel.flickerapp
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,22 +9,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 
-class FlikerImageViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class FlickerImageViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var thumbnailUri: ImageView = view.findViewById(R.id.thumbnail)
-    var title: TextView = view.findViewById(R.id.photo_title)
+    var title: TextView = view.findViewById(R.id.title)
 }
-class FlikerRecycleViewAdapter(private var photoList: List<Photo>): RecyclerView.Adapter<FlikerImageViewHolder>() {
+
+class FlikerRecycleViewAdapter(private var photoList: List<Photo>): RecyclerView.Adapter<FlickerImageViewHolder>() {
     private val TAG = "FlikerAdapter"
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlikerImageViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlickerImageViewHolder {
         //called by the layout when it need new view
-        Log.d(TAG, "onBindViewHolder called")
+//        Log.d(TAG, "onBindViewHolder called")
         var view = LayoutInflater.from(parent.context).inflate(R.layout.browse, parent, false)
 
-        return FlikerImageViewHolder(view)
+        return FlickerImageViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        Log.d(TAG, "getItemCount called")
+//        Log.d(TAG, "getItemCount called")
 
         return if(photoList.isNotEmpty()) photoList.size else 0
     }
@@ -39,11 +40,11 @@ class FlikerRecycleViewAdapter(private var photoList: List<Photo>): RecyclerView
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: FlikerImageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FlickerImageViewHolder, position: Int) {
         //called by layout manager when it needs new view
         val photoItem = photoList[position]
 
-        Log.d(TAG, "onBindViewHolder: ${photoItem.title} -> ${position}")
+//        Log.d(TAG, "onBindViewHolder: ${photoItem.title} -> ${position}")
         Picasso.get()
             .load(photoItem.image)
             .error(R.drawable.placeholder)
