@@ -22,7 +22,7 @@ class GetFlikerJsonData(private val listener: OnDataAvailable) :
         val photoList = ArrayList<Photo>()
         //Log.d(TAG, params[0])
 
-        try{
+        try {
             val jsonData = JSONObject(params[0])
             val itemsArray = jsonData.getJSONArray("items")
 

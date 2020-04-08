@@ -1,14 +1,16 @@
 package com.tomabarbanel.flickerapp
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import android.support.*
+import androidx.appcompat.widget.Toolbar
 
 internal const val FLICKER_QUARR = "FLICK_QUARRY"
 internal const val PHOTO_TRANSFER = "PHOTO_TRANSFER"
 
-class BaseActivity : AppCompatActivity() {
+@SuppressLint("Registered")
+open class BaseActivity : AppCompatActivity() {
     private val TAG = "BaseActivity"
 
     internal fun activateToolbar(enableHome: Boolean) {

@@ -42,7 +42,6 @@ class RecyclerItemClickListener (context: Context, recyclerView: RecyclerView, p
     override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
         Log.d(TAG, "onInterceptTouchEvent: starts $e")
         val res = gestureDetector.onTouchEvent(e)
-//        return super.onInterceptTouchEvent(rv, e)
-        return true
+        return super.onInterceptTouchEvent(rv, e)
     }
 }

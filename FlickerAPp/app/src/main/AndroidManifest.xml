@@ -14,6 +14,7 @@
         <activity
             android:name=".PhotoDetailsActivity"
             android:label="@string/title_activity_photo_details"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SearchActivity"

@@ -1,17 +1,15 @@
 package com.tomabarbanel.flickerapp
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import java.lang.Exception
 import java.util.ArrayList
@@ -19,7 +17,7 @@ import java.util.ArrayList
 private const val TAG = "MainActivity"
 
 
-class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
+class MainActivity : BaseActivity(), GetRawData.OnDownloadDataComplete,
     GetFlikerJsonData.OnDataAvailable, RecyclerItemClickListener.OnRecyclerClickListener {
 
     private val flikerRecycleViewAdapter = FlikerRecycleViewAdapter(ArrayList())
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        activateToolbar(false)
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.addOnItemTouchListener(RecyclerItemClickListener(this, recycler_view, this))
@@ -114,6 +112,12 @@ class MainActivity : AppCompatActivity(), GetRawData.OnDownloadDataComplete,
 
     override fun onItemLongClick(view: View, position: Int) {
         Log.d(TAG, "onLongClick start")
-        Toast.makeText(this, "LogClick at $position", Toast.LENGTH_SHORT).show()
+        val photo = flikerRecycleViewAdapter.getPhoto(position)
+
+        if(photo != null) {
+            val intent = Intent(this, PhotoDetailsActivity::class.java)
+            intent.putExtra(PHOTO_TRANSFER, photo)
+            startActivity(intent)
+        }
     }
 }
