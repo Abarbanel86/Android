@@ -12,4 +12,10 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_photo_details">Photo Details</string>
+    <string name="browse_image_description">downloaded flicker photo</string>
+    <string name="photo_title_text">Title: %s</string>
+    <string name="photo_title_tags">Tags: %s</string>
+    <string name="action_search">Search</string>
+    <string name="search">Search</string>
+    <string name="searchable">Enter photo tags</string>
 </resources>
