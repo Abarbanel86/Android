@@ -28,7 +28,7 @@ class FlikerRecycleViewAdapter(private var photoList: List<Photo>): RecyclerView
     override fun getItemCount(): Int {
 //        Log.d(TAG, "getItemCount called")
 
-        return if(photoList.isNotEmpty()) photoList.size else 0
+        return if(photoList.isNotEmpty()) photoList.size else 1
     }
 
     fun getPhoto(position: Int): Photo? {
@@ -42,16 +42,20 @@ class FlikerRecycleViewAdapter(private var photoList: List<Photo>): RecyclerView
 
     override fun onBindViewHolder(holder: FlickerImageViewHolder, position: Int) {
         //called by layout manager when it needs new view
-        val photoItem = photoList[position]
+        if(photoList.isEmpty()) {
+            holder.thumbnailUri.setImageResource(R.drawable.placeholder)
+            holder.title.setText(R.string.no_photos_found)
+        } else {
+            val photoItem = photoList[position]
 
 //        Log.d(TAG, "onBindViewHolder: ${photoItem.title} -> ${position}")
-        Picasso.get()
-            .load(photoItem.image)
-            .error(R.drawable.placeholder)
-            .placeholder(R.drawable.placeholder)
-            .into(holder.thumbnailUri)
+            Picasso.get()
+                .load(photoItem.image)
+                .error(R.drawable.placeholder)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.thumbnailUri)
 
-        holder.title.text = photoItem.title
-
+            holder.title.text = photoItem.title
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.widget.SearchView
+import androidx.preference.PreferenceManager
 
 class SearchActivity : BaseActivity() {
     private val TAG = "SearchActivity"
@@ -31,12 +32,36 @@ class SearchActivity : BaseActivity() {
 
         val searchableInfo = searchManager.getSearchableInfo(componentName)
         searchView?.setSearchableInfo(searchableInfo)
-        Log.d(TAG, "onCreateOptionsMenu $componentName")
-        Log.d(TAG, "onCreateOptionsMenu hint is ${searchView?.queryHint}")
-        Log.d(TAG, "onCreateOptionsMenu info is $searchableInfo")
+//        Log.d(TAG, "onCreateOptionsMenu $componentName")
+//        Log.d(TAG, "onCreateOptionsMenu hint is ${searchView?.queryHint}")
+//        Log.d(TAG, "onCreateOptionsMenu info is $searchableInfo")
 
         searchView?.isIconified = false
 
+        searchView?.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Log.d(TAG, "onQueryTextSubmit called")
+
+                val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                sharedPreferences.edit().putString(FLICKER_QUARR, query).apply()
+                searchView?.clearFocus()
+
+                finish()
+
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+
+
+        })
+
+        searchView?.setOnCloseListener {
+            finish()
+            false
+        }
         Log.d(TAG, "onCreateOptionsMenu finishing")
 
         return true

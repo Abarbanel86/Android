@@ -18,4 +18,5 @@
     <string name="action_search">Search</string>
     <string name="search">Search</string>
     <string name="searchable">Enter photo tags</string>
+    <string name="no_photos_found">Nothing here.../n/n Please search again for something normal</string>
 </resources>
