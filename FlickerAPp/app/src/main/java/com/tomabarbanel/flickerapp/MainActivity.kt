@@ -9,6 +9,10 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.preference.PreferenceManager
+
+
+
 
 import kotlinx.android.synthetic.main.content_main.*
 import java.lang.Exception
@@ -34,11 +38,6 @@ class MainActivity : BaseActivity(), GetRawData.OnDownloadDataComplete,
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.addOnItemTouchListener(RecyclerItemClickListener(this, recycler_view, this))
         recycler_view.adapter = flikerRecycleViewAdapter
-
-
-        val url = createUri("android, oreo", "en-us", true)
-        val getRawData = GetRawData(this)
-        getRawData.execute(url)
 
         Log.d(TAG, "onCreate ends")
     }
@@ -123,4 +122,20 @@ class MainActivity : BaseActivity(), GetRawData.OnDownloadDataComplete,
             startActivity(intent)
         }
     }
+
+    override fun onResume() {
+        Log.d(TAG, "onResume called")
+        super.onResume()
+
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val queryResult = sharedPreferences.getString(FLICKER_QUARR, "")
+
+        if(queryResult != null && queryResult.isNotEmpty()) {
+            val url = createUri(queryResult, "en-us", true)
+            val getRawData = GetRawData(this)
+            getRawData.execute(url)
+        }
+        Log.d(TAG, "onResume ends")
+    }
+
 }
